@@ -12,9 +12,9 @@
 
   Set the game resolution to `16:9` and not lower than `1600x900`
 
-- 在操作设置中，将`切换走/跑`重绑定至`右Ctrl`
+- ~~在操作设置中，将`切换走/跑`重绑定至`右Ctrl`~~
 
-  In the control settings, rebind `Switch Walk/Run` to `Right Ctrl`
+  ~~In the control settings, rebind `Switch Walk/Run` to `Right Ctrl`~~
 
 - 启动脚本
 

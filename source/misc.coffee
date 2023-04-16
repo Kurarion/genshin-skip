@@ -19,77 +19,77 @@ aboutClient = ->
     Client.emit 'enter'
     report()
 
-  Timer.add 1e3, Upgrader.check
+  # Timer.add 1e3, Upgrader.check
 
 aboutDebug = ->
   unless Config.get 'debug/enable' then return
   $.on 'alt + f9', ColorManager.pick
 
-aboutSkillTimer = ->
+# aboutSkillTimer = ->
 
-  unless Config.get 'skill-timer/enable' then return
+#   unless Config.get 'skill-timer/enable' then return
 
-  # auto scan
+#   # auto scan
 
-  token = 'change.auto-scan'
+#   token = 'change.auto-scan'
 
-  autoScan = ->
-    unless Scene.is 'normal', 'not-busy', 'not-multi', 'not-using-q' then return
-    Scene.off token
-    Party.scan()
+#   autoScan = ->
+#     unless Scene.is 'normal', 'not-busy', 'not-multi', 'not-using-q' then return
+#     Scene.off token
+#     Party.scan()
 
-  addListener = ->
-    Scene.off token
-    Scene.on token, autoScan
+#   addListener = ->
+#     Scene.off token
+#     Scene.on token, autoScan
 
-  Scene.on 'change', ->
-    unless Scene.is 'party' then return
-    addListener()
+#   Scene.on 'change', ->
+#     unless Scene.is 'party' then return
+#     addListener()
 
-  addListener()
+#   addListener()
 
-  # clear party
+#   # clear party
 
-  Scene.on 'change', ->
-    unless Party.size then return
-    unless Scene.is 'multi' then return
-    $.trigger 'alt + f12'
+#   Scene.on 'change', ->
+#     unless Party.size then return
+#     unless Scene.is 'multi' then return
+#     $.trigger 'alt + f12'
 
 boot = (callback) ->
 
   list = [
-    Dictionary
+    # Dictionary
     Config
 
     Client
     console
-    Idle
+    # Idle
     Indicator
 
-    Character
+    # Character
     Gdip
     Sound
-    Transparent
+    # Transparent
 
     Scene
-    Party
-    Hud
+    # Party
+    # Hud
 
-    Camera
-    Menu2
-    Skill
-    Movement
-    Jumper
+    # Camera
+    # Menu2
+    # Skill
+    # Movement
+    # Jumper
 
     Picker
-    Tactic
-    Fishing
+    # Tactic
+    # Fishing
 
-    Recorder
-    Replayer
+    # Recorder
+    # Replayer
 
-    Alice
-    Controller
+    # Alice
+    # Controller
   ]
 
   for m in list
@@ -107,5 +107,5 @@ boot = (callback) ->
 boot ->
   aboutCaps()
   aboutClient()
-  aboutSkillTimer()
+  # aboutSkillTimer()
   aboutDebug()

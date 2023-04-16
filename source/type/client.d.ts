@@ -3,6 +3,7 @@ import { WindowShell } from 'shell-ahk/dist/type/windowShell'
 export class ClientG extends KeyBinding {
   height: number
   isActive: boolean
+  isOn: boolean
   isFullScreen: boolean
   isSuspended: boolean
   position: [number, number]

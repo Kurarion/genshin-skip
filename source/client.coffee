@@ -109,32 +109,32 @@ class ClientG extends KeyBinding
 
     $.on 'ctrl + f5', -> Sound.beep 3, $.reload
 
-    $.on 'alt + enter', =>
-      $.press 'alt + enter'
-      @getState()
-      @setStyle()
+    # $.on 'alt + enter', =>
+    #   $.press 'alt + enter'
+    #   @getState()
+    #   @setStyle()
 
-    for direction in ['left', 'right', 'up', 'down']
-      $.on "win + #{direction}", =>
+    # for direction in ['left', 'right', 'up', 'down']
+    #   $.on "win + #{direction}", =>
 
-        if @isFullScreen then return
-        [x, y] = @position
+    #     if @isFullScreen then return
+    #     [x, y] = @position
 
-        switch direction
-          when 'left' then x -= 1
-          when 'right' then x += 1
-          when 'up' then y -= 1
-          when 'down' then y += 1
+    #     switch direction
+    #       when 'left' then x -= 1
+    #       when 'right' then x += 1
+    #       when 'up' then y -= 1
+    #       when 'down' then y += 1
 
-        if x < 0 then x = 0
-        if x > 2 then x = 2
-        if y < 0 then y = 0
-        if y > 2 then y = 2
+    #     if x < 0 then x = 0
+    #     if x > 2 then x = 2
+    #     if y < 0 then y = 0
+    #     if y > 2 then y = 2
 
-        @position = [x, y]
-        @setPosition()
+    #     @position = [x, y]
+    #     @setPosition()
 
-    return
+    # return
 
   ###* @type import('./type/client').ClientG['reset'] ###
   reset: ->
@@ -207,7 +207,7 @@ class ClientG extends KeyBinding
 
   ###* @type import('./type/client').ClientG['watch'] ###
   watch: ->
-    interval = 100
+    interval = 1000
     Timer.loop interval, @update
 
 Client = new ClientG()

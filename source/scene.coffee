@@ -62,24 +62,23 @@ class SceneG extends EmitterShell
 
     if @checkIsLoading() then return ['loading']
 
-    list = @aboutMenu()
-    if $.length list then return list
+    # list = @aboutMenu()
+    # if $.length list then return list
 
-    list = @aboutHalfMenu()
-    if $.length list then return list
+    # list = @aboutHalfMenu()
+    # if $.length list then return list
 
     list = @aboutNormal()
     if $.length list then return list
 
     if @checkIsEvent() then return ['event']
-    if @checkIsMiniMenu() then return ['mini-menu']
+    # if @checkIsMiniMenu() then return ['mini-menu']
 
     return []
 
   ###* @type import('./type/scene').SceneG['checkIsAiming'] ###
   checkIsAiming: ->
-    unless (Character.get Party.name, 'weapon') == 'bow' then return false
-    return (ColorManager.get ['50%', '50%']) == 0xFFFFFF
+    return false
 
   ###* @type import('./type/scene').SceneG['checkIsBusy'] ###
   checkIsBusy: -> not ColorManager.findAll [0xFFFFFF, 0x323232], [

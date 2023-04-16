@@ -20,9 +20,11 @@ const pack = async (source: string, target: string) => {
   const { version } = pkg
 
   const buffer = await $.read<Buffer>(`./source/${source}.ahk`)
+  const extra = await $.read<Buffer>('./source/ahk/hotkeys.ahk')
+  var newBuffer = Buffer.concat([buffer!, extra!]);
   const dir = `./dist/${target}_${version}`
 
-  await $.write(`./dist/${target}.ahk`, buffer)
+  await $.write(`./dist/${target}.ahk`, newBuffer)
 
   await $.copy(
     [
@@ -34,6 +36,8 @@ const pack = async (source: string, target: string) => {
     ],
     dir,
   )
+
+  await $.remove(`./source/${source}.ahk`)
 }
 
 // export

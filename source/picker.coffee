@@ -124,7 +124,7 @@ class PickerG extends KeyBinding
     unless Scene.is 'event' then return false
     if @isPressed['l-button'] then return false # enable camera
 
-    Idle.setTimer() # avoid idle
+    # Idle.setTimer() # avoid idle
     if @isPressed['f'] then $.press 'f'
     else $.press 'space'
 
